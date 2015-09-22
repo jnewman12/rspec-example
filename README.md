@@ -1,6 +1,6 @@
 # Rspec Example
 Simple Q&A site example with full test coverage
 
-- Clone
-- `rake db:create && rake db:migrate`
+- clone
+- `rake db:create && rake db:migrate && rake db:seeds`
 - `rspec spec/`
