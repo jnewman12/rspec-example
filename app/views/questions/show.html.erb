@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col-lg-12">
+      <h1><%= @question.title %></h1>
+      <p><%= @question.body %></p>
+    </div>
+    <div class="answers">
+      <h3>Answers: </h3>
+      <% @question.answers.each do |answer| %>
+        <p><%= answer.body %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

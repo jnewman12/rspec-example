@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col-lg-12">
+      <h1 class="welcome-text">Example Q & A</h1>
+      <hr class="welcome">
+    </div>
+    <% @questions.each do |q| %>
+	    <div class="col-lg-12 questions">
+	       <h1 class="question-title"><%= link_to "#{q.title}", question_path(q.id) %></h1>
+	       <h3 class="question-body"><%= q.body %></h3>
+	    </div>
+    <% end %>
+  </div>
+</div>
