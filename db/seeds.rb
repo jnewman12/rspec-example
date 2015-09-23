@@ -3,7 +3,7 @@
 		id: i + 1, # to avoid id=0
 		username: Faker::Internet.user_name,
 		email: Faker::Internet.email,
-		password_digest: Fake::Internet.password(8)
+		password_digest: Faker::Internet.password(8)
 		)
 end
 
@@ -11,7 +11,7 @@ end
 	Question.create(
 		id: i + 1,
 		user_id: i + 1,
-		title: Faker::Company.buzzword
+		title: Faker::Company.buzzword,
 		body: Faker::Company.catch_phrase
 		)
 end

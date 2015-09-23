@@ -2,5 +2,5 @@
 Simple Q&A site example with full test coverage
 
 - clone
-- `rake db:create && rake db:migrate && rake db:seeds`
+- `rake db:create && rake db:migrate && rake db:seed`
 - `rspec spec/`
