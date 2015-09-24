@@ -28,24 +28,24 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.include Capybara::DSL
-  config.include AuthenticationHelpers
-  config.mock_with :rspec
+  #config.include Capybara::DSL
+  #config.include AuthenticationHelpers
+  # config.mock_with :rspec
 
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-  end
+  # config.before(:suite) do
+  #   DatabaseCleaner.strategy = :transaction
+  #   DatabaseCleaner.clean_with(:truncation)
+  # end
 
-  config.before(:each, :js => true) do
-    DatabaseCleaner.strategy = :truncation
-  end
+  # config.before(:each, :js => true) do
+  #   DatabaseCleaner.strategy = :truncation
+  # end
 
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
+  # config.before(:each) do
+  #   DatabaseCleaner.start
+  # end
 
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+  # config.after(:each) do
+  #   DatabaseCleaner.clean
+  # end
 end
