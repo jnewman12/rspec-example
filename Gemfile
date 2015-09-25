@@ -25,12 +25,3 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
 end
-
-# group :test do
-#   gem 'shoulda-matchers'
-#   gem 'factory_girl_rails'
-#   gem 'faker'
-#   gem 'capybara'
-#   gem 'selenium-webdriver'
-#   gem 'database_cleaner'
-# end

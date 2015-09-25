@@ -13,8 +13,8 @@ class QuestionsController < ApplicationController
 		if @question.save
 			redirect_to question_path(@question)
 		else
-			@create_errors = @question.errors.full_messages
-			render :new
+			flash.notice = 'Title & Body cannot be blank.'
+			render 'new'
 		end
 	end
 

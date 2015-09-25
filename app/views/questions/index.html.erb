@@ -2,12 +2,18 @@
   <div class="row text-center">
     <div class="col-lg-12">
       <h1 class="welcome-text">Example Q & A</h1>
+      <% if current_user %>
+       <%= link_to 'ask a question', new_question_path%>
+      <% else %>
+        <%= link_to 'sign up to ask a question', new_user_path %>
+      <% end %>   
       <hr class="welcome">
     </div>
     <% @questions.each do |q| %>
 	    <div class="col-lg-12 questions">
 	       <h1 class="question-title"><%= link_to "#{q.title}", question_path(q.id) %></h1>
 	       <h3 class="question-body"><%= q.body %></h3>
+         <p>upvotes: <%= q.upvotes %> <span><i class="fa fa-arrow-circle-up"></i></span></p>
 	    </div>
     <% end %>
   </div>

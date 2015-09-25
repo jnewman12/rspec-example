@@ -8,8 +8,21 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <%= yield %>
 
-<%= yield %>
+  <% if current_user %>
+    <%= link_to 'Sign Out', signout_path, method: :delete %>
+  <% else %>
+    <%= link_to 'Sign In', signin_path %>
+    <%= link_to 'Sign Up', new_user_path %>
+  <% end %>
+  <%= debug(params) if Rails.env.development? %>
+</div>
+<%#= yield %>
 
 </body>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

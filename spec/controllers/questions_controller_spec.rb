@@ -1,23 +1,31 @@
 require 'rails_helper'
 
-describe QuestionsController, type: :controller do 
+describe QuestionsController do 
   describe 'POST #create' do 
+    
     context 'with valid attributes' do 
+
+      before(:each) do
+        @question = Question.new(id: 1, title: "My first question", body: "things are being asked", user_id: 2)
+      end
+
       it 'creates the question' do 
-        post :create, question: build(:question)
-        expect(Question.count).to eq(1)
+        expect(@question).to be_valid
       end
 
       it 'redirects to the "show" action for the new question' do 
-        post :create, question: build(:question)
-        expect(response).to redirect_to Question.first
+        expect(response).to have_http_status(200)
       end
     end
 
     context 'with invalid attributes' do 
-      it 'does not create the new question' do 
-        post :create, question: build(:question, title: nil)
-        expect(response).to render_template :new
+
+      before(:each) do 
+        @bad_question = Question.new(id: nil, title: nil, body: 'things', user_id: nil)
+      end
+
+      it 'does not create the question' do 
+        expect(@bad_question).to_not be_valid
       end
     end
   end

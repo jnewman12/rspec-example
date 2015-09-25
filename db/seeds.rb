@@ -1,18 +1,20 @@
-20.times do |i|
+2.times do |i|
 	User.create(
-		id: i + 1, # to avoid id=0
+		id: i + 4, 
 		username: Faker::Internet.user_name,
 		email: Faker::Internet.email,
-		password_digest: Faker::Internet.password(8)
+		password: 'password',
+        password_confirmation: 'password'
 		)
 end
 
 20.times do |i|
 	Question.create(
 		id: i + 1,
-		user_id: i + 1,
+		user_id: rand(3..5),
 		title: Faker::Company.buzzword,
-		body: Faker::Company.catch_phrase
+		body: Faker::Company.catch_phrase,
+		upvotes: rand(1..100)
 		)
 end
 
@@ -20,7 +22,8 @@ end
 	Answer.create(
 		id: i + 1,
 		question_id: i + 1,
-		user_id: i + 1,
-		body: Faker::Company.bs
+		user_id: rand(3..5),
+		body: Faker::Company.bs,
+		upvotes: rand(1..100)
 	)
 end

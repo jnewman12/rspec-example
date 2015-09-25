@@ -1,5 +1,3 @@
 module ApplicationHelper
-
-	def current_user
-	end
+	# moved to code to application_controller
 end
