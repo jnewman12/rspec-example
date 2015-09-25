@@ -42,6 +42,7 @@ class QuestionsController < ApplicationController
 
 	def upvote
 		upvote_question
+		redirect_to '/'
 	end
 
 	private

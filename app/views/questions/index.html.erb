@@ -13,7 +13,8 @@
 	    <div class="col-lg-12 questions">
 	       <h1 class="question-title"><%= link_to "#{q.title}", question_path(q.id) %></h1>
 	       <h3 class="question-body"><%= q.body %></h3>
-         <p>upvotes: <%= q.upvotes %> <span><i class="fa fa-arrow-circle-up"></i></span></p>
+         <p>upvotes: <%= q.upvotes %><span><i class="fa fa-arrow-circle-up"></i></span></p>
+         <%= link_to 'upvote', upvote_question_path(q.id), method: :put, id: 'upvote-link' %>
 	    </div>
     <% end %>
   </div>

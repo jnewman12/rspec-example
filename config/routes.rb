@@ -9,17 +9,17 @@ Rails.application.routes.draw do
 
   # for upvoting
 
-  # resources :questions do 
-  #   member do 
-  #     post '/upvote' => 'question#upvote'
-  #   end
-  #   resources :comments do
-  #     member do 
-  #       # member routes require an id
-  #       post '/upvote' => 'answers#upvote'
-  #     end
-  #   end
-  # end
+  resources :questions do 
+    member do 
+      put '/upvote' => 'questions#upvote'
+    end
+    resources :comments do
+      member do 
+        # member routes require an id
+        put '/upvote' => 'answers#upvote'
+      end
+    end
+  end
 
   # sessions
   get 'signin' => 'sessions#new'

@@ -1,9 +1,16 @@
 class AnswersController < ApplicationController
 
 	def new
+		@answer = Answer.new
 	end
 
 	def create
+		@answer = Answer.new(answer_params)
+		if @answer.save
+			redirect_to question_answer_path
+		else
+			render 'new'
+		end
 	end
 
 	def delete
